@@ -1,0 +1,19 @@
+.spinner
+{
+    align-self: center;
+}
+
+.success{
+    border: 1px solid greenyellow;
+    padding: 10px;
+    background-color:#e0ffd1;
+    color:black;
+}
+
+.fail
+{
+    border: 1px solid red;
+    padding: 10px;
+    background-color:#ffd9d4;
+    color:black;
+}

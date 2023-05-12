@@ -1,0 +1,165 @@
+<div class="row">
+    <div class="col-md-3">
+        <mat-icon class="back-icon" (click)="moveBack()">
+            keyboard_backspace
+        </mat-icon>
+
+        <span class="title">Create New User</span>
+    </div>
+    <div class="col-md-6 offset-3 d-flex justify-content-end" style=" float: right;">
+        <!-- <button mat-raised-button class="btn-red" [disabled]="!(user.activation_flag && validEmail)">DELETE</button> -->
+        <!-- <span class="vertical"></span> -->
+        <button mat-raised-button class="btn-grey mr-2" (click)="resetUser()">RESET</button>
+        <button mat-raised-button class="btn-blue" (click)="createUser()" [disabled]="userForm.invalid">CREATE</button>
+
+    </div>
+</div>
+<hr>
+<mat-card>
+    <mat-card-content>
+        <section style="border: 1px solid;">
+            <form [formGroup]="userForm">
+                <div class="row form-row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="first_name">
+                            <mat-error *ngIf="userForm.controls.first_name.hasError('required')">Required</mat-error>
+                            <mat-error *ngIf="userForm.controls.first_name.hasError('valid_data')">Enter Valid
+                                Data</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="last_name">
+                            <mat-error *ngIf="userForm.controls.last_name.hasError('required')">Required</mat-error>
+                            <mat-error *ngIf="userForm.controls.last_name.hasError('valid_data')">Enter Valid
+                                Data</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row form-row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>User Name</mat-label>
+                            <input matInput formControlName="user_name">
+                            <mat-error *ngIf="userForm.controls.user_name.hasError('required')">Required</mat-error>
+                            <mat-error *ngIf="userForm.controls.user_name.hasError('valid_data')">Enter Valid
+                                Data</mat-error>
+                            <mat-error *ngIf="userForm.controls.user_name.hasError('duplicate_user_name')">Duplicate
+                                Username</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email_id">
+                            <mat-error *ngIf="userForm.controls.email_id.hasError('required')">Required</mat-error>
+                            <mat-error *ngIf="userForm.controls.email_id.hasError('valid_data')">Enter Valid
+                                Data</mat-error>
+                            <mat-error *ngIf="userForm.controls.email_id.hasError('email')">Invalid Email</mat-error>
+                            <mat-error *ngIf="userForm.controls.email_id.hasError('duplicate_email')">Duplicate
+                                Email</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row form-row">
+                    <div class="col">
+                        <div style="margin-bottom: 0%;padding-bottom: 0%;">
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="password">
+                            <mat-error *ngIf="userForm.controls.password.hasError('required')">Required</mat-error>
+                            
+                            <mat-error *ngIf="userForm.controls.password.hasError('valid_data')">Enter Valid
+                                Data</mat-error>
+                        </mat-form-field>
+                        <div class="d-flex flex-column">
+                            <div *ngIf="!userForm.controls.password.hasError('length')">
+                                <mat-icon style="vertical-align: middle; color:green">check</mat-icon>
+                                <span style="color:green">at least 8 characters</span>
+                            </div>
+
+                            <div *ngIf="!userForm.controls.password.hasError('capital')">
+                                <mat-icon style="vertical-align: middle; color:green">check</mat-icon>
+                                <span style="color:green">at least one uppercase letter</span>
+                            </div>
+                            <div *ngIf="!userForm.controls.password.hasError('lowercase')">
+                                <mat-icon style="vertical-align: middle; color:green">check</mat-icon>
+                                <span style="color:green">at least one uppercase letter</span>
+                            </div>
+                            <div *ngIf="!userForm.controls.password.hasError('digit')">
+                                <mat-icon style="vertical-align: middle; color:green">check</mat-icon>
+                                <span style="color:green">at least one digit</span>
+                            </div>
+                            <div *ngIf="!userForm.controls.password.hasError('sp_character')">
+                                <mat-icon style="vertical-align: middle; color:green">check</mat-icon>
+                                <span style="color:green">at least one special character</span>
+                            </div>
+                            <div *ngIf="!userForm.controls.password.hasError('length')">
+                                <mat-icon style="vertical-align: middle; color:green">check</mat-icon>
+                                <span style="color:green">at least 8 characters</span>
+                            </div>
+                            
+                            <mat-error *ngIf="userForm.controls.password.hasError('length') && !userForm.controls.password.pristine">Password must be at least 8
+                                characters </mat-error>
+                            <mat-error *ngIf="userForm.controls.password.hasError('capital') && !userForm.controls.password.pristine"></mat-error>
+                            <mat-error *ngIf="userForm.controls.password.hasError('lowercase') && !userForm.controls.password.pristine">Password must contain at
+                                least one lowercase
+                                letter</mat-error>
+                            <mat-error *ngIf="userForm.controls.password.hasError('digit') && !userForm.controls.password.pristine">Password must contain at
+                                least one digit</mat-error>
+                            <mat-error *ngIf="userForm.controls.password.hasError('sp_character') && !userForm.controls.password.pristine">Password must contain
+                                at least one special character</mat-error>
+                            <!-- <mat-error *ngIf="userForm.controls.password.hasError('password_not_complex')">Password must
+                                be at least 8 characters long and contain at least one lowercase letter, one uppercase
+                                letter, one number, and one special character.</mat-error> -->
+                        </div>
+                    </div>
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Confirm Password</mat-label>
+                            <input type="password" matInput formControlName="confirm_password">
+                            <mat-error
+                                *ngIf="userForm.controls.confirm_password.hasError('required')">Required</mat-error>
+                            <mat-error *ngIf="userForm.controls.confirm_password.hasError('valid_data')">Enter Valid
+                                Data</mat-error>
+                            <mat-error
+                                *ngIf="userForm.controls.confirm_password.hasError('password_doesnt_match')">Password
+                                Doesn't Match</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row form-row">
+                    <div class="col">
+                        <mat-form-field>
+                            <mat-label>Select Role</mat-label>
+                            <mat-select multiple formControlName="role">
+                                <mat-option *ngFor="let role of userRole" [value]="role">{{role}} </mat-option>
+
+                            </mat-select>
+                            <mat-error *ngIf="userForm.controls.role.hasError('required')">Required</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <div class="user-status-radio">
+                            <label>Activate User:</label>&nbsp;&nbsp;
+                            <mat-radio-group formControlName="activation_flag">
+                                <mat-radio-button value="Active"> Yes </mat-radio-button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <mat-radio-button value="InActive"> No </mat-radio-button>
+                            </mat-radio-group>
+                            <mat-error
+                                *ngIf="userForm.controls.activation_flag.hasError('required')">Required</mat-error>
+                        </div>
+                    </div>
+                </div>
+                <br>
+         </div>
+         </form>
+        </section>
+    </mat-card-content>
+</mat-card>

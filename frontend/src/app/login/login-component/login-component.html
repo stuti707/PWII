@@ -1,0 +1,116 @@
+    <!-- <div class="container-fluid" style="padding-left: 0;">
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <img src="assets/images/loginImage.jpg" height="100%" width="100%" alt="login image" />
+            </div>
+            <div class="row justify-content-center" *ngIf="invalidLogin">
+                <div class="col-md-3 invalid">
+                    <p>{{errMessage}}</p>
+                </div>
+
+            </div>
+            <form>
+                <div class="row" id="center">
+
+                    <div class="col-md-6 offset-3">
+
+                        <mat-form-field id="username">
+                            <input id="username" [(ngModel)]="username" matInput name="username"
+                                placeholder="User Name">
+                        </mat-form-field>
+
+                        <mat-form-field id="password">
+                            <input [(ngModel)]="password" type="password" matInput name="password"
+                                placeholder="Password">
+                        </mat-form-field>
+                        <div class="Row">
+                            <div class="Col" style="width: 70%; text-align: left;"
+                                *ngIf="errMessage=='Password Expired' ">
+                                <a class="reset-passwd-opt" href="javascript:void(0);" (click)="resetPassword()">Reset
+                                    Password </a>
+                            </div>
+
+                            <div class="Col" style="width: 30%; text-align: right;">
+                                <a class="forgot-passwd-opt" href="javascript:void(0);"
+                                    (click)="forgotPassword()">Forgot
+                                    Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="center">
+
+
+
+                    </div>
+
+
+                    <div class="col-md-6 offset-3">
+                        <button mat-raised-button class="btn-blue" (click)="checkLogin()">LOG IN</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+    <div class="container-fluid" style="padding-left: 0;">
+        <div class="row">
+            <div class="col-md-5 form-group">
+                <img src="assets/images/loginImage.jpg" height="835px" width="594px" alt="login image" />
+            </div>
+            <div class="col-md-7 form-group" style="padding-top: 10%;">
+                <div class="row login-logo" id="icon">
+                    <img alt="homepage" class="fg-logo light-logo" src="assets/images/fg-logo.png">
+                    <div style="margin-bottom: 10px;">Clinical Study Build Automation</div>
+                </div>
+                <div class="row justify-content-center" *ngIf="invalidLogin">
+                    <div class="col-md-3 invalid">
+                        <p>{{errMessage}}</p>
+                    </div>
+    
+                </div>
+                <form>
+                <div class="row" id="center">
+    
+                    <div class="col-md-6 offset-3">
+                       
+                            <mat-form-field id="username">
+                                <input id="username" [(ngModel)]="username" matInput name="username"
+                                    placeholder="User Name">
+                            </mat-form-field>
+    
+                            <mat-form-field id="password">
+                                <input [(ngModel)]="password" type="password" matInput name="password"
+                                    placeholder="Password">
+                            </mat-form-field>
+    
+                            <div class="Row">
+                                <div class="Col" style="width: 70%; text-align: left;"
+                                    *ngIf="errMessage=='Password Expired' ">
+                                    <a class="reset-passwd-opt" href="javascript:void(0);" (click)="resetPassword()">Reset
+                                        Password </a>
+                                </div>
+    
+                                <div class="Col" style="width: 30%; text-align: right;">
+                                    <a class="forgot-passwd-opt" href="javascript:void(0);"
+                                        (click)="forgotPassword()">Forgot
+                                        Password?</a>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="row" id="center">
+                    
+                    <div class="col-md-6 offset-3">
+                        <button mat-raised-button class="btn-blue" (click)="checkLogin()">LOG IN</button>
+                    </div>
+                    
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+

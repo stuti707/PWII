@@ -1,0 +1,81 @@
+<br><br>
+<div class="row justify-content-center">
+    <img src="assets/images/fg-logo.png" alt="homepage" class="fg-logo light-logo">
+</div>
+<div class=" row card-holder" *ngIf="showform">
+    
+<mat-card class="reset-card">
+    <mat-card-content>
+
+        <form [formGroup]="password_form">
+        <mat-card-title>
+
+            Reset Your Password
+        </mat-card-title>
+        <mat-form-field>
+            <input formControlName = "password" matInput type="password" placeholder="New Password">
+            <mat-error *ngIf="password_form.controls.password.hasError('required')">Required</mat-error>
+            
+      
+        </mat-form-field> 
+        <mat-error *ngIf="password_form.controls.password.hasError('length')" class="passwordComplexity">Password must be at least 8
+            characters </mat-error>
+        <mat-error *ngIf="password_form.controls.password.hasError('capital')" class="passwordComplexity">Password must contain at
+            least one uppercase
+            letter</mat-error>
+        <mat-error *ngIf="password_form.controls.password.hasError('lowercase')" class="passwordComplexity">Password must contain at
+            least one lowercase
+            letter</mat-error>
+        <mat-error *ngIf="password_form.controls.password.hasError('digit')" class="passwordComplexity">Password must contain at
+            least one digit</mat-error>
+        <mat-error *ngIf="password_form.controls.password.hasError('sp_character')" class="passwordComplexity">Password must contain
+            at least one special character</mat-error>
+    
+        <mat-form-field appearance="legacy">
+            <input matInput formControlName="confirm_password" type="password" placeholder="Confirm Password">
+            <mat-error *ngIf="password_form.controls.confirm_password.hasError('required')">Required</mat-error>
+            <mat-error *ngIf="password_form.controls.confirm_password.hasError('password_doesnt_match')">Passwords dont match</mat-error>
+            <!-- <mat-error *ngIf="password_form.hasError('password_doesnt_match')">Passwords dont match</mat-error> -->
+        </mat-form-field>
+<!-- 
+        <div style="width: 100%;text-align: center;" *ngIf="!passMatch">
+            <p class="fail"> Password does not Match</p>
+        </div> -->
+
+        <div class="row fail justify-content-center mb-2 mt-2" *ngIf="password_form.errors?.password_doesnt_match">
+            Passwords Dont Match
+        </div>
+        
+        <div style="width:100%;text-align: center;">
+            <button mat-raised-button class="btn-blue" (click)="updatePassword()" [disabled]="password_form.invalid">Update</button>
+        </div>
+        <br>
+        <div *ngIf="resultText && !isUpdating" style="width:100%;text-align: center;"> 
+            <p [ngClass]="{'success':result,'fail':!result}">{{resultText}}</p>
+            
+        </div>
+
+        <div  class="success row" *ngIf="resultText && isUpdating" style="width:100%;text-align: center;"> 
+           {{resultText}}...
+            
+        </div>
+        <br>
+    </form>
+    </mat-card-content> 
+</mat-card>
+</div>
+
+<div class="row justify-content-center mt-4" *ngIf="!token_valid && !isValidating">
+    <div class="fail row">
+        Link Expired! Redirecting you to Login Page.
+    </div>
+</div>
+
+
+<div class="row justify-content-center mt-4" *ngIf="!token_valid && isValidating">
+    <div class="success row">
+        Validating..
+    </div>
+</div>
+
+

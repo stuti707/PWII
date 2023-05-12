@@ -1,0 +1,103 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+  top: 20px;
+}
+
+.user-status-radio {
+  position: relative;
+  top: 20px;
+}
+
+.mat-header-cell {
+  color: #333 !important;
+  font-size: large !important;
+}
+
+.label {
+  font-size: large;
+  float: left;
+  color: #333;
+  font-weight: bold;
+  margin-left: 18px;
+}
+
+.vertical {
+  border-left: 1px solid lightgrey;
+  height: 18px;
+  margin-top: 12px;
+  margin-right: 10px;
+  margin-left: 10px;
+  /* position: absolute;
+left: 80%; */
+}
+
+.btn-blue {
+  background-color: #13bfd8;
+  color: white !important;
+}
+
+.action-btn {
+  margin-left: 20px;
+  height: 45px;
+  width: 110px;
+  font-size: 16px;
+}
+
+.delete-btn {
+  background-color: #ff3333;
+  color: white !important;
+}
+
+.mat-card {
+  font-family: roboto !important;
+}
+
+mat-form-field {
+  font-family: roboto !important;
+}
+
+.col {
+  margin-left: 25px !important;
+}
+
+.form-row {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.reset-btn {
+  border: 2px solid #A9A9A9;
+  color: #A9A9A9;
+  font-weight: bold;
+}
+
+mat-radio-button {
+  font-weight: 400;
+}
+
+.new-user-text {
+  font-family: roboto;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline;
+  margin-left: 40px;
+}
+
+.back-icon
+{
+    top:9px;
+    position: relative;
+    font-size: 30px;
+    margin-right: 10px;
+    cursor:pointer !important;
+    margin-left: 10px;
+}
+.passwordComplexity{
+  font-size: 12px;
+  margin: 0px;
+  padding: 0%;
+  line-height: 1.8em
+}

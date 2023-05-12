@@ -1,0 +1,57 @@
+<div>
+    <div class="row">
+        <p class='title'>Edit User</p>
+    </div>
+    <hr style="height: 2px; color: black;">
+    <div class="row">
+        <div class="col-md-4">
+            <label>Username</label>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userdata.user_name" disabled>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <label>First Name:</label>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userdata.first_name">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <label>Last Name:</label>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userdata.last_name">
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <label>Role</label>
+            <mat-form-field>
+                <mat-select multiple [(ngModel)]="userdata.role">
+                    <mat-option *ngFor="let role of roles" [value]="role">{{role}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <label>Email ID</label>
+            <mat-form-field>
+                <input matInput [(ngModel)]="userdata.email_id">
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div>
+            <div class="col-md-12" style="text-align: right;padding-top:10px;">
+                <button mat-stroked-button class="btn-grey" (click)="updateUser()">Update</button>&nbsp;&nbsp;
+                <button mat-raised-button class="btn-blue" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

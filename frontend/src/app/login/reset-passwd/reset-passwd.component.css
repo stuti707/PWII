@@ -1,0 +1,42 @@
+.reset-card
+{
+    max-width: 500px;
+    align-self: center;
+}
+
+.card-holder{
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.success{
+    border: 1px solid greenyellow;
+    padding: 10px;
+    background-color:#e0ffd1;
+    color:black;
+}
+
+.fail
+{
+    border: 1px solid red;
+    padding: 10px;
+    background-color:#ffd9d4;
+    color:black;
+}
+
+.fg-logo
+{
+    height: 50px;
+    width: 225px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.passwordComplexity{
+    font-size: 12px;
+    margin: 0px;
+    padding: 0%;
+    line-height: 1.8em
+  }
